@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pythonapp-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: pythonapp
+  template:
+    metadata:
+      labels:
+        app: pythonapp
+    spec:
+      containers:
+        - name: loginappcontainer
+          image: iftekar/python-login-postgresql:pythonapp
+          ports:
+            - containerPort: 5000
+          imagePullPolicy: Always
+

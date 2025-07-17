@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: loginapp
+spec:
+  containers:
+    - name: loginappcontainer
+      image: iftekar/python-login-postgresql:pythonapp
+      ports:
+        - containerPort: 5000
+      imagePullPolicy: Always
+

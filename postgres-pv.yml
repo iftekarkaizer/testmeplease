@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: postgres-pv
+spec:
+  capacity:
+    storage: 10Gi                   # Match PVC storage request here (10Gi)
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/mnt/data/postgres"
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: standard        # Add this to match PVC
+

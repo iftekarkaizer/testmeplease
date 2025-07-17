@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: postgres
+spec:
+  containers:
+  - name: postgres
+    image: postgres:16
+    env:
+      - name: POSTGRES_DB
+        value: logindb
+      - name: POSTGRES_USER
+        value: kaizeriftekar
+      - name: POSTGRES_PASSWORD
+        value: yoursecurepassword
+    ports:
+      - containerPort: 5432
+    volumeMounts:
+      - mountPath: /var/lib/postgresql/data
+        name: pgdata
+  volumes:
+    - name: pgdata
+      persistentVolumeClaim:
+        claimName: pgdata-pvc
+

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: loginapp-second
+spec:
+  containers:
+    - name: secondcontainer
+      image: iftekar/hello:just5010
+      ports:
+        - containerPort: 5010
+      imagePullPolicy: Always
+
